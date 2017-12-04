@@ -7,6 +7,10 @@ let combined = []
 let firstNameCol
 let lastNameCol
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // combine the rows values
 Object.keys(cells).forEach(cell => {
   let row = cell.slice(1)
@@ -23,11 +27,23 @@ Object.keys(cells).forEach(cell => {
     lastNameCol = col
   }
 
+  // cleanup + format
   val = val.trim()
+  val = capitalizeFirstLetter(val)
 
   if (col === firstNameCol) {
     combined[row] += '-' + val + ' '
-  } else {
+  }
+  else if (col === lastNameCol) {
+    combined[row] += val
+  }
+  else {
+    // add punctuation if there isn't any.
+    const hasPuncutation = /[,.?\-]/.test(val.charAt(val.length - 1))
+    if (!hasPuncutation ) {
+      val = val + '.'
+    }
+
     combined[row] += val + ' '
   }
 })
@@ -45,10 +61,13 @@ const formattedTestimonials = combinedArr.map((testimonial, i) => {
   // so we'll just slice that out real quick.
   testimonial = testimonial.slice(9)
 
+  var text = testimonial.split("-")[0].trim()
+  var author = testimonial.split("-")[1].trim()
+
   // remove blank testimonials
   if (testimonial.charAt(0) === '-') return
 
-  return `<blockquote>${testimonial}</blockquote>\n`
+  return `<blockquote>"${text}" -${author}</blockquote>\n`
 })
 .join('\n')
 
