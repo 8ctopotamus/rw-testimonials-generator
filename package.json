@@ -1,0 +1,15 @@
+{
+  "name": "rw-testimonials-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rw-testimonials-generator.js",
+  "scripts": {
+    "start": "node rw-testimonials-generator.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xlsx": "^0.11.10"
+  }
+}
