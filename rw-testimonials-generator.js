@@ -43,7 +43,6 @@ Object.keys(cells).forEach(cell => {
     if (!hasPuncutation ) {
       val = val + '.'
     }
-
     combined[row] += val + ' '
   }
 })
@@ -51,7 +50,7 @@ Object.keys(cells).forEach(cell => {
 // turn into array
 const combinedArr = Object.keys(combined).map(key => { return combined[key] })
 
-// format testimonials
+// format testimonials HTML
 const formattedTestimonials = combinedArr.map((testimonial, i) => {
   // the first row is the list of questions.
   // we don't need this.
@@ -61,11 +60,11 @@ const formattedTestimonials = combinedArr.map((testimonial, i) => {
   // so we'll just slice that out real quick.
   testimonial = testimonial.slice(9)
 
-  var text = testimonial.split("-")[0].trim()
-  var author = testimonial.split("-")[1].trim()
-
   // remove blank testimonials
   if (testimonial.charAt(0) === '-') return
+
+  var text = testimonial.split("-")[0].trim()
+  var author = testimonial.split("-")[1].trim()
 
   return `<blockquote>"${text}" -${author}</blockquote>\n`
 })
