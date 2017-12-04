@@ -8,5 +8,7 @@ Generate excel content into formatted HTML testimonials for RW Webinars.
 
 ## Usage
 1) Put your .xlsx file in the root of this project directory.
-2) Open a terminal in this directory and run `npm start`.
-3) Copy the contents of testimonials.txt into WordPress.
+2) Rename spreadsheet to "survey.xlsx"
+3) Open a terminal in this directory (shift + right-click directory and 'open command window') and
+4) Run `npm start`.
+4) Copy the contents of testimonials.txt into WordPress.

@@ -1,6 +1,6 @@
 const fs = require('fs')
 const XLSX = require('xlsx')
-const workbook = XLSX.readFile('./test.xlsx')
+const workbook = XLSX.readFile('./survey.xlsx')
 const cells = workbook.Sheets.Sheet0
 
 let combined = []
@@ -73,5 +73,5 @@ const formattedTestimonials = combinedArr.map((testimonial, i) => {
 // generate the file
 fs.writeFile('./testimonials.txt', formattedTestimonials, 'utf8', (err) => {
   if (err) throw err
-  console.log('Your file is ready :)')
+  console.info('Your file is ready :)')
 })
